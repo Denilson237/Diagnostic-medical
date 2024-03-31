@@ -1,0 +1,64 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <title>D-medical AI</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
+            <div class="flex flex-col justify-center bg-blue-950 bg-opacity-90 font-[sans-serif] text-[#333] p-4">
+                <div class="max-w-6xl w-full mx-auto bg-gray-50 border  mb-48 border-gray-800 rounded-md p-10">
+                  <div class="text-center py-1 mb-6">
+
+                    <a href="{% url 'base' %}"><img
+                        src="{% static 'images/logo.png' %}" alt="logo" class='h-12 inline-block' />
+                    </a>
+                  </div>
+                    <div class="mb-5 text-center">
+                        <h3 class="text-2xl font-extrabold text-blue-900">Representation Graphique des Données </h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="mt-8">
+                            <h3 class="text-xl font-extrabold text-blue-900"> Analyse Textuelle des Symptomes</h3>
+                            
+                            <img class="h-auto max-w-full rounded-lg" src="{% static 'images/Nuage_des_mots_present_dans_nos_symptomes.png' %}" alt="image description">
+
+                        </div>
+                        <div class="mt-8">
+                            <h3 class="text-xl font-extrabold text-blue-900"> Analyse Univariée des Symptomes</h3>
+                            
+                            <img class="h-auto max-w-full rounded-lg" src="{% static 'images/Symptomes_les_plus_repandus.png' %}" alt="image description">
+
+                        </div>
+                        <div class="mt-8">
+                            <h3 class="text-xl font-extrabold text-blue-900"> Analyse bivanivariée des Symptomes - Maladies</h3>
+                            
+                            <img class="h-auto max-w-full rounded-lg" src="{% static 'images/Maladies_ayant_le_plus_de_symptomes.png' %}" alt="image description">
+
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h3 class="text-xl font-extrabold text-blue-900"> Deduction</h3>
+                            
+                            <img class="h-auto max-w-full rounded-lg" src="{% static 'images/Maladies_ayant_les_15_symptomes_les_plus_repandus.png' %}" alt="image description">
+
+                        </div>
+                        
+                    </div>
+                    <div class="!mt-10 flex justify-between ">
+                      <a  href="{% url 'base' %}" class="py-3 px-4 text-sm font-semibold rounded text-white bg-blue-900 bg-opacity-90 hover:bg-blue-600 focus:outline-none">
+                        Acceuil
+                      </a>
+                      <a href="https://github.com/Denilson237/Diagnostique-Medical" target="_blank" class="text-sm mt-6 text-center text-blue-600 font-semibold hover:underline ml-1">Obtenez plus d'informations </a>
+                
+                    </div>  
+                     
+                </div>
+              </div>
+	</body>
+</html>

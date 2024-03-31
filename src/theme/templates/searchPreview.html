@@ -1,0 +1,32 @@
+{% extends 'baseSearch.html' %}
+
+{% block resultPreview %}
+
+<div class="p-4 sm:ml-72 sm:mr-12 mb-40">
+	<div class=" px-4 lg:xl:py-16 font-[sans-serif] text-[#333]">
+        <a href="{% url 'base' %}" class="flex justify-center items-center space-x-9 rtl:space-x-reverse">
+            <img src="static/images/logo.png" class="h-10" alt="D-medical Logo" />
+        </a>
+		<h2 class="text-3xl font-bold mt-14 text-blue-900 text-center">Welcome Back</h2>
+	</div>
+    <div
+      class="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
+      <div class="w-full max-w-lg bg-gradient-to-r from-blue-50   to-white shadow-lg rounded-md p-6 relative">
+        <div class="flex items-center pb-2 border-b text-black">
+          <h3 class="text-2xl font-bold text-center text-red-700 flex-1">ATTENTION</h3>
+         
+        </div>
+        <div class="my-2">
+          <p class="text-md">Chers utilisateurs, nous tenons à vous informer qu'en tant que plateforme de diagnostic médical utilisant l'intelligence artificielle, il est essentiel de reconnaître que les résultats fournis sont basés sur des algorithmes et des données disponibles à un moment donné. Bien que nous mettions tout en œuvre pour fournir des diagnostics précis et fiables, il est important de se rappeler que ces résultats ne doivent pas remplacer l'avis d'un professionnel de la santé qualifié. Les diagnostics médicaux doivent être interprétés dans leur contexte clinique global, en tenant compte des antécédents médicaux, des symptômes et des résultats d'autres tests. Nous vous encourageons donc vivement à consulter un médecin ou un spécialiste pour toute préoccupation médicale ou tout besoin de suivi, et à ne jamais ignorer ou retarder une consultation médicale en se basant uniquement sur les résultats obtenus ici. Votre santé et votre bien-être sont notre priorité absolue, et nous sommes là pour vous accompagner dans votre parcours de soins de santé.</p>
+          <P class="text-red-500 text-sm">NB : Vous ne verrez que les maladies ayant une Similarité de 50% avec vos symptômes, dans le cas echeant vous ne verrez rien a l'ecran.</P>
+        </div>
+        <div class="border-t flex justify-end pt-4 ">
+          
+          <a href="{% url 'previewNotModal' %}"
+            class="px-6 py-2 rounded-md text-white text-lg border-none outline-none bg-blue-800 hover:bg-blue-700 active:bg-blue-600">J'ai compris</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

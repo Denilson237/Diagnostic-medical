@@ -1,0 +1,30 @@
+{% extends 'baseSearch.html' %}
+
+{% block result %}
+
+
+
+<div class="p-4 sm:ml-72 sm:mr-12 mb-40">
+	<div class=" px-4 lg:xl:py-10 font-[sans-serif] text-[#333]">
+		<h2 class="text-3xl font-bold mb-14 text-blue-900 text-center">Welcome Back</h2>
+
+		<div class="grid sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
+			{% if items %}
+				{% for item in items %}
+				<a href="{% url 'detailMaladie' slug=item.slug %}" class="bg-white flex gap-6 max-lg:flex-col rounded-2xl md:p-8 p-6 shadow-[0_-4px_24px_-8px_rgba(0,0,0,0.2)]">
+					<h3 class="text-5xl font-extrabold">{{item.Similarite}}<span class="text-blue-600">%</span></h3>
+					<div>
+					<p class="text-base font-bold">{{item.Maladies}}</p>
+					<p class="text-sm text-gray-500 mt-2"> {{item.Examens}}</p>
+					</div>
+				</a> 
+				{% endfor %}
+			{% endif %}
+		</div>		
+		{% if count == 0 %}
+		<p>N'hesitez pas a réessayer avec plus de symptomes...</p>
+		{% endif %}
+		<h1 class="font-bold mb-4 text-pink-900">Total des maladies ayant une Similarité supérieure a 49% avec vos sypmtomes : <span class="text-3xl">{{ count }}</span></h1>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+
+
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>D-medical AI</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+	<body class=" mx-auto bg-black font-normal leading-normal text-gray-200 tracking-normal ">
+		<div class="relative overflow-hidden w-full h-screen">
+			<video class="absolute top-0 left-0 w-full h-full object-cover" controls autoplay muted loop>
+			<source
+				src="{% static 'images/vids.mp4' %}"
+				type="video/mp4">
+			Your browser does not support the video tag.
+			</video>
+			<div class="absolute top-0 left-0 w-full h-full bg-opacity-50 bg-black">
+				
+				{% block navbar %}
+
+        		{% endblock %}
+
+				<div class=" flex flex-col items-center justify-center p-8  z-30  lg:mt-28 xl:mt-28 ">
+					
+					<h1 class="text-4xl text-center">VOTRE SANTÉ, NOTRE PRIORITÉ</h1>
+					<p class="my-3 text-center text-xl text-white max-w-2xl">
+						Découvrez une approche de diagnostic médical précise et efficace avec notre plateforme. Grâce à des outils de pointe et une équipe experte nous vous offrons des solutions rapides et fiables. pour votre bien-être. Obtenez une évaluation claire de votre santé et prenez des décisions éclairées Faites confiance à notre plateforme pour des diagnostics médicaux de qualité et adaptés à vos besoins.
+					</p>
+					{% if user.is_authenticated %}
+					<a href="{% url 'searchPreview' %}" class="bg-blue-900 hover:bg-blue-800 rounded-lg text-sm px-5 py-3.5 text-center text-white  mt-3 " >
+						Get started
+					</a>
+					{% else %}
+					<a href="{% url 'login' %}" class="bg-blue-900 hover:bg-blue-800 rounded-lg text-sm px-5 py-3.5 text-center text-white  mt-3 " >
+						Get started
+					</a>
+					{% endif %}
+				</div>
+				<div relative h-32 w-32 >
+					<div class="flex flex-col align-start justify-end p-8 z-30 absolute lg:mx-14 xl:mx-14 bottom-0 left-0 ">
+						
+						
+						<p class="mt-2 text-xl ">Projet Etudiant</p>
+						<h1 class="text-2xl font-bold">THEME : Plateforme de Diagnostic Medical</h1>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+	</body>
+
+	

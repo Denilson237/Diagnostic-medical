@@ -1,0 +1,24 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>D-medical AI</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+	<div class="flex flex-col bg-blue-950 bg-opacity-90 justify-center font-[sans-serif] text-[#333] h-screen p-4">
+		<div class="max-w-md w-full mx-auto border bg-white border-gray-300 rounded-md p-6">
+		  <div class="text-center mb-3">
+			<div class="items-center text-2xl font-semibold text-green-700"><img
+			  src="static/images/logo.png" alt="logo" class='h-12 m-2 inline-block '/>Opération réussi !
+			<div class="max-w-lg  mt-4">
+			
+			<a href="{% url 'base'%}" class="bg-blue-800 rounded-lg font-semibold text-sm text-white p-2 " > Retour</a>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	
+</html>

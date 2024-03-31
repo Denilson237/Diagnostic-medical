@@ -1,0 +1,16 @@
+{% extends 'baseSearch.html' %}
+
+{% block Preview %}
+
+<div class="p-4 lg:ml-72 lg:mr-12 mb-40">
+	<div class=" px-4 lg:xl:py-16 font-[sans-serif] text-[#333]">
+        <a href="{% url 'base' %}" class="flex justify-center items-center space-x-9 rtl:space-x-reverse">
+            <img src="static/images/logo.png" class="h-10" alt="D-medical Logo" />
+        </a>
+		<h2 class="text-2xl font-bold mt-14 text-blue-900 text-center">Comment puis-je vous aider aujourd'hui ?</h2>
+        <p class="mt-10 text-center text-red-500">  {{err}} </p>
+	</div>
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+
+<nav class="bg-transparent ">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="{% url 'base' %}" class="flex items-center space-x-9 rtl:space-x-reverse">
+            <img src="static/images/logo.png" class="h-10" alt="D-medical Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap  ">Diagnostic Medical AI</span>
+        </a>
+        
+        <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 hover:border rounded-lg lg:hidden hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-600 dark:text-gray-400 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+        <div class="hidden w-full lg:block text-xl md:w-auto " id="navbar-dropdown">
+            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4   rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
+                <li>
+                    <a href="{% url 'base' %}" class="block py-2 px-1 hover:underline hover:underline-offset-4 focus:outline-none focus:underline focus:underline-offset-4" aria-current="page">Acceuil</a>
+                </li>
+
+                <li>
+                
+                    <div class="block space-y-4 md:flex md:space-y-0 md:space-x-4 rtl:space-x-reverse">
+                       
+                        <button data-modal-target="extralarge-modal" data-modal-toggle="extralarge-modal" class="overflow-y-auto focus:outline-none focus:underline focus:underline-offset-4 block py-2 px-1 hover:underline hover:underline-offset-4" type="button">
+                            A propos 
+                        </button>
+                    </div>
+                    
+                    <div id="extralarge-modal" tabindex="-1" class="fixed bg-opacity-80 bg-black top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative w-full max-w-7xl max-h-full">
+                            
+                            <div class="relative  rounded-lg shadow ">
+
+                                <a href="{% url 'base' %}" data-modal-hide="extralarge-modal" class="fixed top-1 right-2 z-40  block py-2 px-3 hover:underline hover:underline-offset-4">Fermer</a>
+                                
+                                <div class="p-4 md:p-5 space-y-4">
+                                    <h1 class="text-4xl font-bold mb-10 text-center">Techonologies Utilisées Aucours de Notre Projet</h1>
+                                <p class=" text-xl"><span class="font-bold text-2xl text-blue-900"> Le Scraping</span> <br>Le scraping est le processus automatisé de collecte de données à partir de sites web, généralement à l'aide de bots ou de scripts, pour récupérer des informations spécifiques.</p>
+                                <p class=" text-xl"><span class="font-bold text-2xl text-blue-900"> La Data science</span> <br>La data science est un domaine multidisciplinaire qui utilise des méthodes scientifiques, des algorithmes et des systèmes pour extraire des informations et des connaissances à partir de données, facilitant ainsi la prise de décision et la résolution de problèmes dans divers domaines. </p>
+                                <p class=" text-xl"><span class="font-bold text-2xl text-blue-900"> NLTK</span> <br>NLTK (Natural Language Toolkit) est une bibliothèque Python dédiée au traitement du langage naturel. Elle propose une gamme variée d'outils pour l'analyse et la manipulation de données textuelles, permettant ainsi le développement rapide et efficace d'applications de traitement de texte et d'analyse linguistique.</p>
+                                <p class="text-xl"><span class="font-bold text-2xl text-blue-900"> SCIKIT-LEARN</span> <br>Scikit-learn, souvent abrégé en sklearn, est une bibliothèque open-source de machine learning pour Python. Elle offre des outils simples et efficaces pour l'analyse de données et la modélisation prédictive, avec une large gamme d'algorithmes de classification, de régression, de clustering et plus encore. Sklearn est largement utilisé pour sa facilité d'utilisation et sa robustesse dans la communauté de l'apprentissage automatique.</p>
+                                <p class="text-xl"><span class="font-bold text-2xl text-blue-900"> DJANGO</span> <br>Django est un framework web open-source, basé sur Python, qui permet de développer rapidement des applications web sécurisées et évolutives en suivant le principe du "don't repeat yourself" (DRY) et du "convention over configuration".</p>
+                                <p class="text-xl"><span class="font-bold text-2xl text-blue-900"> TAILWIND CSS</span> <br>Tailwind CSS est une bibliothèque CSS utilitaire qui permet de créer rapidement des interfaces utilisateur modernes en combinant des classes prédéfinies pour styliser les éléments HTML, offrant ainsi un développement efficace et une personnalisation facile.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                </li>
+
+                {% if not user.is_authenticated %}
+                <li>
+                    <a href = "{% url 'register' %}" class = "block py-2 px-1 hover:underline hover:underline-offset-4 focus:outline-none focus:underline focus:underline-offset-4">
+                        Inscription
+                    </a>
+                </li>
+                {% endif %}
+                <li>
+                    {% if user.is_authenticated %}
+                    <button id="dropdownNavbarl" data-dropdown-toggle="dropdownNavba" class="flex items-center justify-between w-full py-2 px-1 hover:underline hover:underline-offset-4 focus:outline-none focus:underline focus:underline-offset-4">{{ user.username }} <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg></button>
+                                
+                                <div id="dropdownNavba" class="z-10 hidden  rounded-lg bg-blue-950 lg:bg-transparent xl:bg-transparent " >
+                                    <ul class="py-2 text-lg " aria-labelledby="dropdownLargeButton">
+                                        <li>
+                                        <a href="{% url 'update' %}" class="block px-4 py-2 hover:underline hover:underline-offset-4 focus:outline-none focus:underline focus:underline-offset-4">Maj du Profil</a>
+                                        </li>
+                                        <li>
+                                        <a href="{% url 'change_passeWord' %}" class="block px-4 py-2 hover:underline hover:underline-offset-4 focus:outline-none focus:underline focus:underline-offset-4">Change Passeword</a>
+                                        </li>
+                                        <li>
+                                        <a href="{% url 'logout' %}" class="block px-4 py-2 hover:underline hover:underline-offset-4 focus:outline-none focus:underline focus:underline-offset-4">Deconnection</a>
+                                        </li>
+                                    </ul>
+                                </div>		
+                    {% else %}
+                        <a href = "{% url 'login' %}" class = "block py-2 px-1 hover:underline hover:underline-offset-4 focus:outline-none focus:underline focus:underline-offset-4">
+                            Connexion
+                        </a>
+                    {% endif %}
+                </li>
+                <li>
+                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-1 hover:underline hover:underline-offset-4 focus:outline-none focus:underline focus:underline-offset-4">Participants <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                    </button>
+
+                    <div id="dropdownNavbar" class="z-10 hidden  rounded-lg bg-blue-950 lg:bg-transparent xl:bg-transparent " >
+                        <ul class="py-2 text-lg " aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <span class="block px-4 py-2 ">Ngoumla Denilson Duplex</span>
+                            </li>
+                            <li>
+                                <span class="block px-4 py-2 "> Kengne Fokam Idriss Leonel</span>
+                            </li>
+                            <li>
+                                <span class="block px-4 py-2 ">Dongmo Kenfack Lesly</span>
+                            </li>
+                            <li>
+                                <span class="block px-4 py-2">Ngankem Fogang Ivan Styve</span>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</nav>
+{% endblock %}
